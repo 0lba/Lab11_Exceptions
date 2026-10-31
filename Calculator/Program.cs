@@ -1,30 +1,16 @@
-﻿using System.Runtime.ConstrainedExecution;
-
-// static int SafeParseInt(string input, int defaultValue)
-// {
-//     try
-//     {
-//         int a = int.Parse(input);
-//         return a;
-//     }
-//     catch (Exception)
-//     {
-//         return defaultValue;
-//     }
-// }
-void DemoCustomException()
+﻿int[] grades = [85, 42, 91, 67, 78, 55, 93, 71];
+int sum = 0;
+int countAbove70 = 0;
+for (int i = 0; i < grades.Length; i++)
 {
-    int a = -5;
-    if (a < 0)
+    int current = grades[i];
+    sum += current;
+    if (current > 70)
     {
-        throw new ArgumentException("Возраст не может быть отрицательным");
-    }
-    else
-    {
-        Console.WriteLine("Все верно");
+        countAbove70++;
     }
 }
-// Console.WriteLine(SafeParseInt("42", 1));
-// Console.WriteLine(SafeParseInt("abc", 1));
-// Console.WriteLine(SafeParseInt("99999999999999", 1));
-DemoCustomException();
+double average = (double)sum / grades.Length;
+Console.WriteLine($"Сумма: {sum}");
+Console.WriteLine($"Среднее: {average:F1}");
+Console.WriteLine($"Выше 70: {countAbove70}");
